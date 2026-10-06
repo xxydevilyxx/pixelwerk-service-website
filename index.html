@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=14" />
+  <link rel="stylesheet" href="styles.css?v=15" />
 </head>
 <body>
   <div class="aurora aurora-a"></div>
@@ -304,10 +304,15 @@ document.addEventListener("DOMContentLoaded",function(){
  function updateFloating(){
    if(!heroCta||!floating)return;
    const rect=heroCta.getBoundingClientRect();
-   floating.classList.toggle("is-visible",rect.bottom<0);
+   const show=rect.bottom<0;
+   floating.classList.toggle("is-visible",show);
+   floating.style.opacity=show?"1":"0";
+   floating.style.visibility=show?"visible":"hidden";
+   floating.style.pointerEvents=show?"auto":"none";
  }
  if(floating){
    floating.classList.remove("is-visible");
+   floating.style.opacity="0"; floating.style.visibility="hidden"; floating.style.pointerEvents="none";
    window.addEventListener("scroll",updateFloating,{passive:true});
    window.addEventListener("resize",updateFloating);
    updateFloating();
