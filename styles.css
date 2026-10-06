@@ -745,3 +745,23 @@ input:focus,textarea:focus{border-color:rgba(255,145,101,.62);box-shadow:0 0 0 4
  .mobile-menu.is-open .mobile-menu-button span:nth-child(2){opacity:0}
  .mobile-menu.is-open .mobile-menu-button span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
 }
+
+
+/* ===== iPhone touch-safe menu layering ===== */
+@media(max-width:680px){
+ .mobile-menu{z-index:10000 !important}
+ .mobile-menu-button{
+   position:relative !important;
+   z-index:10002 !important;
+   pointer-events:auto !important;
+   touch-action:manipulation;
+   -webkit-tap-highlight-color:transparent;
+ }
+ .mobile-menu-panel{
+   z-index:10001 !important;
+   pointer-events:auto !important;
+ }
+ .mobile-menu.is-open .mobile-menu-button{
+   background:rgba(255,255,255,.09);
+ }
+}
