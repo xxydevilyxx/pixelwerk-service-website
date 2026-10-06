@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=12" />
+  <link rel="stylesheet" href="styles.css?v=13" />
 </head>
 <body>
   <div class="aurora aurora-a"></div>
@@ -51,7 +51,7 @@
           für Shops, Selbstständige, Immobilien und Social Media.
         </p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#kontakt">Bild / Projekt anfragen <span>→</span></a>
+          <a id="hero-project-cta" class="btn btn-primary" href="#kontakt">Bild / Projekt anfragen <span>→</span></a>
           <a class="btn btn-secondary" href="#beispiele">Vorher / Nachher ansehen</a>
         </div>
         <div class="micro-proof">
@@ -299,6 +299,14 @@ document.addEventListener("DOMContentLoaded",function(){
  document.addEventListener("click",function(e){
    if(!menu.contains(e.target))setOpen(false);
  },true);
+ const heroCta=document.getElementById("hero-project-cta");
+ const floating=document.querySelector(".floating-contact");
+ if(heroCta&&floating&&"IntersectionObserver" in window){
+   const observer=new IntersectionObserver(function(entries){
+     floating.classList.toggle("is-visible",!entries[0].isIntersecting);
+   },{threshold:0.05});
+   observer.observe(heroCta);
+ }else if(floating){floating.classList.add("is-visible");}
 });
 </script>
 </body>
