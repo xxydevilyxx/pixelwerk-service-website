@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 220" role="img" aria-labelledby="title desc">
+<title id="title">PixelWerk</title><desc id="desc">PixelWerk Logo mit stilisiertem P und Kamera-Blende</desc>
+<defs>
+ <linearGradient id="metal" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff7ef"/><stop offset=".42" stop-color="#ff9b61"/><stop offset=".72" stop-color="#d96b91"/><stop offset="1" stop-color="#ffd06a"/></linearGradient>
+ <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffffff" stop-opacity=".26"/><stop offset=".5" stop-color="#ff8a52" stop-opacity=".10"/><stop offset="1" stop-color="#d65c83" stop-opacity=".22"/></linearGradient>
+ <filter id="glow"><feGaussianBlur stdDeviation="7" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<g transform="translate(28 12)">
+ <circle cx="98" cy="98" r="82" fill="url(#glass)" stroke="#ffd8c2" stroke-opacity=".35" stroke-width="2"/>
+ <circle cx="98" cy="98" r="66" fill="#0c090a" fill-opacity=".72" stroke="#ff9b61" stroke-opacity=".35"/>
+ <path d="M66 150V45h52c31 0 50 17 50 43s-19 43-50 43H91v19H66zm25-42h26c15 0 25-7 25-20s-10-20-25-20H91v40z" fill="url(#metal)" filter="url(#glow)"/>
+ <g transform="translate(99 88)">
+  <path d="M0-26l10 15 18 2-12 14 4 18-20-8-20 8 4-18-12-14 18-2z" fill="url(#metal)" opacity=".95"/>
+  <circle r="8" fill="#160d0d" stroke="#ffd6b7" stroke-width="2"/>
+ </g>
+</g>
+<text x="220" y="108" fill="#fff8f2" font-family="Arial,Helvetica,sans-serif" font-size="64" font-weight="700" letter-spacing="-2">Pixel</text>
+<text x="394" y="108" fill="url(#metal)" font-family="Arial,Helvetica,sans-serif" font-size="64" font-weight="700" letter-spacing="-2">Werk</text>
+<text x="224" y="142" fill="#c9aaa0" font-family="Arial,Helvetica,sans-serif" font-size="13" letter-spacing="4">BILDBEARBEITUNG MIT STIL</text>
+<path d="M220 154h390" stroke="#ff9b61" stroke-opacity=".45"/>
+</svg>
