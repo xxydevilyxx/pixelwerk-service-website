@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=10" />
+  <link rel="stylesheet" href="styles.css?v=11" />
 </head>
 <body>
   <div class="aurora aurora-a"></div>
@@ -29,9 +29,8 @@
     </nav>
     <a class="nav-cta" href="#kontakt">Projekt starten <span>↗</span></a>
     <div class="mobile-menu">
-      <input id="mobile-toggle" class="mobile-toggle" type="checkbox" />
-      <label for="mobile-toggle" class="mobile-menu-button" aria-label="Menü öffnen"><span></span><span></span><span></span></label>
-      <nav class="mobile-menu-panel glass" aria-label="Mobile Navigation">
+      <button type="button" class="mobile-menu-button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu-panel"><span></span><span></span><span></span></button>
+      <nav id="mobile-menu-panel" class="mobile-menu-panel glass" aria-label="Mobile Navigation">
         <a href="#leistungen">Leistungen</a>
         <a href="#beispiele">Beispiele</a>
         <a href="#ablauf">Ablauf</a>
@@ -275,15 +274,16 @@
     <span>© 2026 PixelWerk</span>
     <span>Professionelle Bildbearbeitung · Deutschland</span>
   </footer>
+
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const toggle = document.getElementById("mobile-toggle");
-  const menuLinks = document.querySelectorAll(".mobile-menu-panel a");
-  menuLinks.forEach(link => {
-    link.addEventListener("click", () => {
-      toggle.checked = false;
-    });
-  });
+document.addEventListener("DOMContentLoaded",function(){
+ const menu=document.querySelector(".mobile-menu");
+ const button=document.querySelector(".mobile-menu-button");
+ const panel=document.getElementById("mobile-menu-panel");
+ const close=function(){menu.classList.remove("is-open");button.setAttribute("aria-expanded","false");};
+ button.addEventListener("click",function(e){e.stopPropagation();menu.classList.toggle("is-open");button.setAttribute("aria-expanded",menu.classList.contains("is-open")?"true":"false");});
+ panel.querySelectorAll("a").forEach(function(a){a.addEventListener("click",close);});
+ document.addEventListener("click",function(e){if(!menu.contains(e.target)) close();});
 });
 </script>
 </body>
