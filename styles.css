@@ -656,3 +656,24 @@ input:focus,textarea:focus{border-color:rgba(255,145,101,.62);box-shadow:0 0 0 4
  .mobile-menu>summary{width:36px;height:36px}
  .mobile-menu-panel{width:205px !important}
 }
+
+
+/* ===== Mobile menu visibility fix ===== */
+@media(max-width:680px){
+  .site-nav{
+    overflow:visible !important;
+    z-index:200;
+  }
+  .mobile-menu{
+    position:relative !important;
+    z-index:210;
+  }
+  .mobile-menu-panel{
+    visibility:visible;
+    opacity:1;
+    pointer-events:auto;
+  }
+  .mobile-menu-panel.glass{
+    overflow:hidden !important;
+  }
+}
