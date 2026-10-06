@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=13" />
+  <link rel="stylesheet" href="styles.css?v=14" />
 </head>
 <body>
   <div class="aurora aurora-a"></div>
@@ -268,7 +268,7 @@
     </section>
   </main>
 
-  <a class="floating-contact" href="#kontakt" aria-label="Projekt anfragen">Projekt anfragen <span>↗</span></a>
+  <a class="floating-contact" href="#kontakt" aria-label="Projekt anfragen" style="opacity:0;visibility:hidden;pointer-events:none;">Projekt anfragen <span>↗</span></a>
 
   <footer class="site-footer">
     <span>© 2026 PixelWerk</span>
@@ -301,12 +301,17 @@ document.addEventListener("DOMContentLoaded",function(){
  },true);
  const heroCta=document.getElementById("hero-project-cta");
  const floating=document.querySelector(".floating-contact");
- if(heroCta&&floating&&"IntersectionObserver" in window){
-   const observer=new IntersectionObserver(function(entries){
-     floating.classList.toggle("is-visible",!entries[0].isIntersecting);
-   },{threshold:0.05});
-   observer.observe(heroCta);
- }else if(floating){floating.classList.add("is-visible");}
+ function updateFloating(){
+   if(!heroCta||!floating)return;
+   const rect=heroCta.getBoundingClientRect();
+   floating.classList.toggle("is-visible",rect.bottom<0);
+ }
+ if(floating){
+   floating.classList.remove("is-visible");
+   window.addEventListener("scroll",updateFloating,{passive:true});
+   window.addEventListener("resize",updateFloating);
+   updateFloating();
+ }
 });
 </script>
 </body>
