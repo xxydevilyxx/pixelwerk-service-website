@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=15" />
+  <link rel="stylesheet" href="styles.css?v=16" />
 </head>
 <body>
   <div class="aurora aurora-a"></div>
@@ -268,7 +268,7 @@
     </section>
   </main>
 
-  <a class="floating-contact" href="#kontakt" aria-label="Projekt anfragen" style="opacity:0;visibility:hidden;pointer-events:none;">Projekt anfragen <span>↗</span></a>
+  <a class="floating-contact" href="#kontakt" aria-label="Projekt anfragen">Projekt anfragen <span>↗</span></a>
 
   <footer class="site-footer">
     <span>© 2026 PixelWerk</span>
@@ -306,13 +306,13 @@ document.addEventListener("DOMContentLoaded",function(){
    const rect=heroCta.getBoundingClientRect();
    const show=rect.bottom<0;
    floating.classList.toggle("is-visible",show);
-   floating.style.opacity=show?"1":"0";
-   floating.style.visibility=show?"visible":"hidden";
-   floating.style.pointerEvents=show?"auto":"none";
+   floating.style.opacity="";
+   floating.style.visibility="";
+   floating.style.pointerEvents="";
  }
  if(floating){
    floating.classList.remove("is-visible");
-   floating.style.opacity="0"; floating.style.visibility="hidden"; floating.style.pointerEvents="none";
+   
    window.addEventListener("scroll",updateFloating,{passive:true});
    window.addEventListener("resize",updateFloating);
    updateFloating();
