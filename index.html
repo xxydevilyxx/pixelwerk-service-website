@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=11" />
+  <link rel="stylesheet" href="styles.css?v=12" />
 </head>
 <body>
   <div class="aurora aurora-a"></div>
@@ -280,10 +280,25 @@ document.addEventListener("DOMContentLoaded",function(){
  const menu=document.querySelector(".mobile-menu");
  const button=document.querySelector(".mobile-menu-button");
  const panel=document.getElementById("mobile-menu-panel");
- const close=function(){menu.classList.remove("is-open");button.setAttribute("aria-expanded","false");};
- button.addEventListener("click",function(e){e.stopPropagation();menu.classList.toggle("is-open");button.setAttribute("aria-expanded",menu.classList.contains("is-open")?"true":"false");});
- panel.querySelectorAll("a").forEach(function(a){a.addEventListener("click",close);});
- document.addEventListener("click",function(e){if(!menu.contains(e.target)) close();});
+ if(!menu||!button||!panel)return;
+ function setOpen(open){
+   menu.classList.toggle("is-open",open);
+   button.setAttribute("aria-expanded",open?"true":"false");
+ }
+ function toggle(e){
+   e.preventDefault();
+   e.stopPropagation();
+   setOpen(!menu.classList.contains("is-open"));
+ }
+ button.addEventListener("click",toggle,true);
+ button.addEventListener("touchend",toggle,{capture:true,passive:false});
+ panel.querySelectorAll("a").forEach(function(a){
+   a.addEventListener("click",function(){setOpen(false);});
+   a.addEventListener("touchend",function(){setOpen(false);},{passive:true});
+ });
+ document.addEventListener("click",function(e){
+   if(!menu.contains(e.target))setOpen(false);
+ },true);
 });
 </script>
 </body>
