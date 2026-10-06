@@ -237,3 +237,220 @@ form small{color:#6f7a8d;line-height:1.5;font-size:10px}
   html{scroll-behavior:auto}
   .btn{transition:none}
 }
+
+/* ===== Mobile-first refinement ===== */
+@media (max-width: 680px){
+  html{scroll-padding-top:82px}
+  body{font-size:15px}
+  body:before{background-size:28px 28px;opacity:.45}
+  .aurora{filter:blur(70px);opacity:.16}
+  .aurora-a{width:260px;height:260px;left:-150px;top:15vh}
+  .aurora-b{width:220px;height:220px;right:-130px;top:55vh}
+
+  .shell{width:calc(100% - 28px);max-width:none}
+  .site-nav{
+    width:calc(100% - 16px);
+    min-height:58px;
+    margin:8px auto 0;
+    top:8px;
+    padding:9px 10px 9px 12px;
+    border-radius:17px;
+    gap:8px;
+  }
+  .brand{font-size:17px;gap:8px;flex:0 0 auto}
+  .brand-mark{width:30px;height:30px;border-radius:9px}
+  .desktop-nav{display:none}
+  .nav-cta{padding:10px 12px;font-size:11px;white-space:nowrap}
+  .nav-cta span{display:inline}
+
+  .hero{
+    display:flex;
+    flex-direction:column;
+    gap:26px;
+    padding-top:48px;
+    padding-bottom:34px;
+    min-height:0;
+  }
+  .hero-copy{width:100%}
+  .eyebrow{font-size:9px;letter-spacing:.13em;margin-bottom:13px}
+  .pill{padding:7px 9px;max-width:100%;white-space:normal;line-height:1.35}
+  .hero h1{
+    font-size:clamp(47px,14.5vw,66px);
+    line-height:.94;
+    letter-spacing:-.07em;
+  }
+  .hero-lead{
+    margin:18px 0 20px;
+    font-size:15px;
+    line-height:1.55;
+  }
+  .hero-actions{display:grid;grid-template-columns:1fr;gap:9px}
+  .btn{
+    width:100%;
+    min-height:48px;
+    padding:13px 15px;
+    border-radius:13px;
+    font-size:12px;
+  }
+  .micro-proof{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:7px;
+    margin-top:15px;
+    font-size:11px;
+  }
+
+  .hero-visual{
+    width:100%;
+    padding:8px;
+    border-radius:19px;
+  }
+  .hero-topline{
+    padding:7px 5px 10px;
+    font-size:8px;
+    letter-spacing:.1em;
+  }
+  .hero-image-wrap{border-radius:13px}
+  .floating-tag{
+    padding:7px 9px;
+    border-radius:9px;
+    font-size:9px;
+  }
+  .tag-top{top:10px;left:10px}
+  .tag-bottom{right:10px;bottom:10px}
+
+  .proof-bar{
+    width:calc(100% - 28px);
+    margin-bottom:28px;
+    border-radius:15px;
+    grid-template-columns:1fr 1fr;
+  }
+  .proof-bar div{
+    min-width:0;
+    padding:14px 12px;
+    gap:0;
+    border-right:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .proof-bar div:nth-child(2n){border-right:0}
+  .proof-bar div:nth-child(n+3){border-bottom:0}
+  .proof-bar strong{font-size:16px}
+  .proof-bar span{display:block;font-size:9px;line-height:1.35}
+
+  .section{padding:54px 0}
+  .section-intro{display:block;margin-bottom:25px}
+  .section-intro h2{
+    font-size:clamp(39px,11.5vw,54px);
+    line-height:.98;
+    letter-spacing:-.065em;
+  }
+  .section-intro>p{
+    margin-top:13px;
+    font-size:12px;
+    line-height:1.6;
+  }
+
+  .service-grid,.case-grid,.pricing-grid,.process-grid{
+    grid-template-columns:1fr;
+    gap:10px;
+  }
+  .service-card{
+    min-height:0;
+    padding:20px;
+    border-radius:17px;
+  }
+  .service-index{right:16px;top:16px;font-size:9px}
+  .service-icon{width:36px;height:36px;border-radius:10px;font-size:17px}
+  .service-card h3{
+    margin:20px 0 7px;
+    font-size:21px;
+  }
+  .service-card p{font-size:12px;line-height:1.55}
+  .service-price{margin-top:13px;font-size:11px}
+
+  .showcase{padding:7px;border-radius:18px}
+  .showcase img{border-radius:12px}
+  .case-card{
+    min-height:0;
+    padding:20px;
+    border-radius:17px;
+  }
+  .case-card h3{
+    margin:24px 0 8px;
+    font-size:21px;
+  }
+  .case-card p{font-size:12px;line-height:1.55}
+  .case-card a{font-size:11px}
+
+  .process-card{
+    min-height:0;
+    padding:20px;
+    border-radius:17px;
+  }
+  .process-card h3{margin:20px 0 7px;font-size:20px}
+  .process-card p{font-size:12px;line-height:1.55}
+
+  .price-card{padding:22px;border-radius:19px}
+  .price-card h3{font-size:25px;margin:24px 0 2px}
+  .price{font-size:38px}
+  .price-card>p{font-size:12px}
+  .price-card ul{
+    padding:15px 0;
+    margin:18px 0;
+    font-size:11px;
+    line-height:1.9;
+  }
+  .popular{font-size:8px;right:12px;top:12px;padding:6px 8px}
+  .pricing-note{font-size:10px;line-height:1.5;padding:13px 14px}
+
+  .faq-list{gap:7px}
+  .faq-list details{padding:0 15px;border-radius:15px}
+  .faq-list summary{padding:17px 0;font-size:14px}
+  .faq-list p{margin:0 0 17px;font-size:11px;line-height:1.6}
+
+  .contact-section{padding-bottom:65px}
+  .contact-box{
+    padding:24px 18px;
+    gap:27px;
+    border-radius:20px;
+  }
+  .contact-copy h2{font-size:clamp(42px,12vw,57px);line-height:.95}
+  .contact-copy>p{font-size:12px;line-height:1.6}
+  .contact-points{gap:6px;margin-top:17px}
+  .contact-points span{font-size:9px;padding:7px 8px}
+  form{gap:11px}
+  label{font-size:10px;gap:6px}
+  input,textarea{padding:12px;font-size:13px;border-radius:10px}
+  textarea{min-height:120px}
+  form small{font-size:9px}
+
+  .floating-contact{
+    left:12px;
+    right:12px;
+    bottom:10px;
+    justify-content:center;
+    padding:12px 14px;
+    border-radius:13px;
+    font-size:11px;
+  }
+  .site-footer{
+    width:calc(100% - 28px);
+    padding:20px 0 82px;
+    text-align:center;
+    font-size:9px;
+  }
+  .site-footer span{display:block;margin:5px 0}
+
+  /* Avoid expensive blur on smaller devices while keeping the glass look. */
+  .glass{
+    backdrop-filter:blur(12px) saturate(115%);
+    -webkit-backdrop-filter:blur(12px) saturate(115%);
+  }
+}
+
+@media (max-width:380px){
+  .brand span:last-child{display:none}
+  .hero h1{font-size:45px}
+  .section-intro h2{font-size:37px}
+  .nav-cta{padding:9px 10px;font-size:10px}
+}
